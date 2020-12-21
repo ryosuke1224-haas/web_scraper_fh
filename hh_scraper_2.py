@@ -1,15 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
-
-cd C:\Users\ryosu\OneDrive\デスクトップ\Peek\hh-scraper
-
-
-# In[2]:
-
-
 import requests
 import time
 import pandas as pd
@@ -22,28 +13,11 @@ import requests
 import re
 import bs4
 
-
-# In[3]:
-
-
 links=pd.read_csv('links_findahaunt.csv',header=None)
-
-
-# In[4]:
-
-
 links
-
-
-# In[5]:
-
 
 for i in links[0]:
     print(i)
-
-
-# In[6]:
-
 
 names=[]
 adresses=[]
@@ -75,26 +49,12 @@ for i in links[0]:
     except:
         pass
 
-
-# In[7]:
-
-
 df=pd.DataFrame({"name":names,
     "adress":adresses,
     "website":webs,
-    "phone":phones
-    
+    "phone":phones   
 })
-
-
-# In[8]:
-
 
 df_new=df.drop_duplicates(["name"])
 
-
-# In[9]:
-
-
 df_new.to_csv('output_findahaunt.csv')
-
